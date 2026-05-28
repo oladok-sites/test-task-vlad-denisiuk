@@ -4,8 +4,7 @@ import Header from '@/src/components/Header';
 import Footer from '@/src/components/Footer';
 
 export const metadata: Metadata = {
-	title: 'NextLead - Свяжитесь с нами',
-	description: 'Профессиональные услуги консультаций и связи',
+	title: 'Vlad | Test task',
 };
 
 export default function RootLayout({
