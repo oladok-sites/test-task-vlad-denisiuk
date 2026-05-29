@@ -6,15 +6,20 @@ import Link from "next/link";
 export default function Contact() {
 	const [errors, setErrors] = useState<Record<string, string>>({});
 
-    console.log(errors)
-
 	const [formState, setFormState] = useState<'loading' | 'success' | 'error' | 'init'>('init');
 
+    const [formData, setFormData] = useState({
+        name: '',
+        phone: '',
+        email: '',
+        serviceType: '',
+        comment: '',
+    });
 
 	const handleSubmit = async (e: React.SubmitEvent<HTMLFormElement>) => {
 		e.preventDefault();
 
-        // setFormState('loading')
+        setFormState('loading')
 
 		const formData = new FormData(e.currentTarget);
 
@@ -50,6 +55,7 @@ export default function Contact() {
                     });
 
                     setErrors(fieldErrors);
+                    setFormState('init')
 
                     return;
                 }
@@ -88,6 +94,13 @@ export default function Contact() {
 										id='name'
 										name='name'
 										placeholder='Введите имя'
+                                        value={formData.name}
+                                        onChange={(e) =>
+                                            setFormData(prev => ({
+                                                ...prev,
+                                                name: e.target.value
+                                            }))
+                                        }
 										className='w-full bg-slate-700 border border-slate-600 rounded-lg py-3 px-4 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent'
 									/>
 								</div>
@@ -104,6 +117,13 @@ export default function Contact() {
 										id='phone'
 										name='phone'
 										placeholder='+380000000000'
+                                        value={formData.phone}
+                                        onChange={(e) =>
+                                            setFormData(prev => ({
+                                                ...prev,
+                                                phone: e.target.value
+                                            }))
+                                        }
 										className='w-full bg-slate-700 border border-slate-600 rounded-lg py-3 px-4 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent'
 									/>
 								</div>
@@ -120,6 +140,13 @@ export default function Contact() {
 										id='email'
 										name='email'
 										placeholder='example@mail.com'
+                                        value={formData.email}
+                                        onChange={(e) =>
+                                            setFormData(prev => ({
+                                                ...prev,
+                                                email: e.target.value
+                                            }))
+                                        }
 										className='w-full bg-slate-700 border border-slate-600 rounded-lg py-3 px-4 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent'
 									/>
 								</div>
@@ -133,7 +160,13 @@ export default function Contact() {
 								<select
 									id='serviceType'
 									name='serviceType'
-									required
+                                    value={formData.serviceType}
+                                    onChange={(e) =>
+                                        setFormData(prev => ({
+                                            ...prev,
+                                            serviceType: e.target.value
+                                        }))
+                                    }
 									className='w-full bg-slate-700 border border-slate-600 rounded-lg py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent appearance-none cursor-pointer'
 								>
 									<option value='WEB_DEVELOPMENT'>Web Development</option>
@@ -152,6 +185,13 @@ export default function Contact() {
 									name='comment'
 									placeholder='...'
 									rows={5}
+                                    value={formData.comment}
+                                    onChange={(e) =>
+                                        setFormData(prev => ({
+                                            ...prev,
+                                            comment: e.target.value
+                                        }))
+                                    }
 									className='w-full bg-slate-700 border border-slate-600 rounded-lg py-3 px-4 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent resize-none'
 								/>
 								{errors.comment && <p className='text-red-500 text-sm mt-1'>{errors.comment}</p>}

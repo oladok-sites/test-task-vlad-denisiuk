@@ -11,15 +11,15 @@ export default function Footer() {
 					{/* Logo and Copyright */}
 					<div className="flex flex-col gap-4 items-center">
                         <Image src="/images/logo.png" alt="" width={45} height={45}/>
-						<p className="text-slate-400 text-sm">© {currentYear} NextLead. All rights reserved.</p>
+						<p className="text-slate-400 text-sm">© {currentYear}. All rights reserved.</p>
 					</div>
 
 					{/* Links */}
 					<div className="flex flex-col gap-2 justify-center items-center">
-						<Link href="/privacy" className="text-slate-400 hover:text-white text-sm transition-colors">
+						<Link href="/" className="text-slate-400 hover:text-white text-sm transition-colors">
 							Политика конфиденциальности
 						</Link>
-						<Link href="/terms" className="text-slate-400 hover:text-white text-sm transition-colors">
+						<Link href="/" className="text-slate-400 hover:text-white text-sm transition-colors">
 							Условия использования
 						</Link>
 					</div>
