@@ -64,6 +64,7 @@ export default function Header() {
                             className={`text-sm font-medium transition-colors ${
                                 isActive('/admin') || isActive('/admin-login') ? 'text-white' : 'text-slate-400 hover:text-white'
                             }`}
+							onClick={() => setIsMenuOpen(false)}
                         >
                             Админ-панель
                         </Link>
