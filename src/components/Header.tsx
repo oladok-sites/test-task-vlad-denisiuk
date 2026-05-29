@@ -59,6 +59,14 @@ export default function Header() {
 						>
 							О нас
 						</Link>
+                        <Link
+                            href='/admin'
+                            className={`text-sm font-medium transition-colors ${
+                                isActive('/admin') || isActive('/admin-login') ? 'text-white' : 'text-slate-400 hover:text-white'
+                            }`}
+                        >
+                            Админ-панель
+                        </Link>
 						<Link
 							href='/contact'
 							className={`text-sm font-medium transition-colors ${
